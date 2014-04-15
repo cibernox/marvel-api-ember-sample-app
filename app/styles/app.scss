@@ -1,0 +1,196 @@
+@import url(http://fonts.googleapis.com/css?family=Permanent+Marker);
+
+
+@keyframes domChanged { from { background: yellow; } }
+@-webkit-keyframes domChanged { from { background: yellow; } }
+.ember-view { animation: domChanged 1s; -webkit-animation: domChanged 1s; }
+
+// Reset & defaults
+:root, body{
+  font-family: helvetica, sans-serif;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #333;
+}
+a{ text-decoration: none; }
+
+// Global variables
+$black: black;
+$dark-gray: #222;
+$red: #d1292c;
+$white: white;
+
+// Mixins
+@mixin mono-lined($height){
+  height: $height;
+  line-height: $height;
+}
+
+// Global classes and placeholders
+.strong, %strong{
+  font-style: bold;
+}
+.black, %black{
+  background: $black;
+  color: $white;
+}
+.dark-gray, %dark-gray{
+  background: $dark-gray;
+  color: white;
+}
+.red, %red{
+  background: $red;
+  color: white;
+}
+
+
+// My syles
+
+// Basic layout
+#marvel-ember-app{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  > * {
+    padding-left: 50px;
+  }
+}
+
+#app-header{
+  @include mono-lined(100px);
+  @extend %black;
+  font-size: 400%;
+}
+#main-content{
+  flex: 1;
+  overflow: scroll;
+  position: relative;
+  > :not(.background-placeholder){
+    position: relative;
+  }
+}
+#app-footer{
+  @include mono-lined(70px);
+  @extend %dark-gray;
+}
+// Marvel text
+.marvel-text{
+  @extend %red;
+  @extend %strong;
+  font-family: 'Impact';
+  text-transform: uppercase;
+  padding: 1rem;
+}
+.marvel-logo{
+  padding: 0 1rem;
+}
+// Sections backgrounds
+.bg-characters{
+  background-image: url("/images/characters.jpg");
+}
+.bg-comics{
+  background-image: url("/images/comics.jpg");
+}
+.bg-series{
+  background-image: url("/images/series.jpg");
+}
+.bg-characters-inverse{
+  background-image: url("/images/characters-inverse.jpg");
+}
+.bg-comics-inverse{
+  background-image: url("/images/comics-inverse.jpg");
+}
+.bg-series-inverse{
+  background-image: url("/images/series-inverse.jpg");
+}
+.section-links{
+  display: flex;
+  padding: 2rem 0 0 0;
+  .link{
+    @extend %dark-gray;
+    flex: 1;
+    height: 70vh;
+    margin: 0 2rem 2rem 0;
+    position: relative;
+    font-size: 1.8rem;
+  }
+}
+.link-text{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+// Lists
+.entries-list{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 2rem 0 0 0;
+}
+.entry{
+  @extend %dark-gray;
+  flex: 1;
+  height: 200px;
+  margin: 0 2rem 2rem 0;
+  padding: 1rem;
+  min-width: 20%;
+  max-width: 20%;
+  transition: -webkit-transform .3s, transform .3s;
+  position: relative;
+  font-size: 1.4rem;
+  &:nth-of-type(4n){
+    margin-right: 0;
+  }
+  &:hover{
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+  }
+}
+.translucid{
+  opacity: 0.25;
+  &.solid-hover{
+    transition: opacity .5s;
+    &:hover{
+      opacity: 0.7;
+    }
+  }
+}
+.background-placeholder, %background-placeholder{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.background-cover{
+  @extend .background-placeholder;
+  background-size: cover;
+}
+
+
+.character-card{
+  padding: 2rem 0;
+  display: flex;
+  .image{
+    display: flex;
+    flex: 25;
+    background: black;
+    padding: 2rem 1rem;
+    justify-content: center;
+  }
+  .detailed-info{
+    flex: 75;
+    padding: 0 2rem;
+  }
+  .name{
+    font-size: 30px;
+    display: inline-block;
+  }
+  .description{
+    padding: 2rem 0;
+    font-size: 24px;
+    font-family: 'Permanent Marker', cursive;
+  }
+}

@@ -1,0 +1,20 @@
+<div class="character-card">
+  <div class="image">
+    <div class="image-canvas">
+      <img {{bind-attr src="thumbnail.smallUrl"}}>
+    </div>
+  </div>
+  <div class="detailed-info">
+    <div class="own-info">
+      <div class="name marvel-text">{{name}}</div>
+      <div class="description">{{default-description description}}</div>
+    </div>
+    <div class="related-info">
+      <div class="series">
+        {{#each series}}
+          <p>{{title}}</p>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</div>

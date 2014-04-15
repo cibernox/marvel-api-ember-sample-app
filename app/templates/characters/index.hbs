@@ -1,0 +1,5 @@
+<div class="entries-list">
+  {{#each}}
+    {{#link-to 'characters.show' this class="entry"}}{{view "characters/entry"}}{{/link-to}}
+  {{/each}}
+</div>
