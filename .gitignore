@@ -8,6 +8,7 @@
 /node_modules
 /vendor/*
 !/vendor/_loader.js
+!/vendor/md5
 
 # misc
 /.sass-cache
