@@ -1,2 +1,21 @@
 {{#link-to "comics.index" class="skewed-title back-link"}}Back to comics' list{{/link-to}}
-<h2>Comics show</h2>
+<div class="detail-card">
+  <div class="image">
+    <div class="image-canvas">
+      <img {{bind-attr src="thumbnail.smallUrl"}}>
+    </div>
+  </div>
+  <div class="detailed-info">
+    <div class="own-info">
+      <div class="title marvel-text">{{title}}</div>
+      <div class="description">{{description}}</div>
+    </div>
+    <div class="related-info">
+      <div class="series">
+        <header class="skewed-title">Characters</header>
+        <ul>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

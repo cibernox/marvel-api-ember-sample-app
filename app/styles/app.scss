@@ -198,7 +198,7 @@ $white: white;
 }
 
 
-.character-card{
+.detail-card{
   padding: 2rem 0;
   display: flex;
   .image{ flex: 25; }
@@ -210,7 +210,7 @@ $white: white;
     flex: 75;
     padding: 0 2rem;
   }
-  .name{
+  .title{
     font-size: 30px;
     display: inline-block;
   }
