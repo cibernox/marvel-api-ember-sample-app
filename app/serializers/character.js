@@ -6,6 +6,14 @@ var idRegex = /\d*$/,
   };
 
 export default ApplicationSerializer.extend({
+  normalize: function(type, hash, prop) {
+    if (Ember.isArray(hash)){
+      hash.forEach(this.normalizeCharacter);
+    } else {
+      this.normalizeCharacter(hash);
+    }
+    return this._super(type, hash, prop);
+  },
   normalizeCharacter: function(recordJson){
     recordJson.links = {
       series: recordJson.series.collectionURI,
@@ -17,14 +25,5 @@ export default ApplicationSerializer.extend({
     recordJson.comics = recordJson.comics.items.map(idExtractor);
     recordJson.events = recordJson.events.items.map(idExtractor);
     recordJson.stories = recordJson.stories.items.map(idExtractor);
-    return recordJson;
-  },
-  extractSingle: function(store, type, payload) {
-    var json = this._super(store, type, payload);
-    return this.normalizeCharacter(json);
-  },
-  extractArray: function(store, type, payload){
-    var jsonsAry = this._super(store, type, payload);
-    return jsonsAry.map(this.normalizeCharacter);
   }
 });

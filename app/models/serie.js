@@ -5,7 +5,7 @@ export default DS.Model.extend({
   modified: DS.attr('date'),
   rating: DS.attr('string'),
   startYear: DS.attr('number'),
-  thumbnail: DS.attr('image'),
+  thumbnail: DS.attr('thumbnail'),
   type: DS.attr('string'),
   url: DS.attr('string'),
   // Relations

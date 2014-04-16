@@ -1,3 +1,4 @@
+{{#link-to "characters.index" class="skewed-title back-link"}}Back to characters' list{{/link-to}}
 <div class="character-card">
   <div class="image">
     <div class="image-canvas">
@@ -11,9 +12,14 @@
     </div>
     <div class="related-info">
       <div class="series">
-        {{#each series}}
-          <p>{{title}}</p>
-        {{/each}}
+        <header class="skewed-title">Series</header>
+        <ul>
+          {{#each series}}
+            <li>
+              {{#link-to "series.show" this}}{{title}}{{/link-to}}
+            </li>
+          {{/each}}
+        </ul>
       </div>
     </div>
   </div>

@@ -6,6 +6,10 @@
 .ember-view { animation: domChanged 1s; -webkit-animation: domChanged 1s; }
 
 // Reset & defaults
+
+/* html5doctor.com Reset v1.6.1 - http://cssreset.com */
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}nav ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}ins{background-color:#ff9;color:#000;text-decoration:none}mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}del{text-decoration:line-through}abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}table{border-collapse:collapse;border-spacing:0}hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}input,select{vertical-align:middle}
+
 :root, body{
   font-family: helvetica, sans-serif;
   font-size: 16px;
@@ -169,16 +173,38 @@ $white: white;
   background-size: cover;
 }
 
+.skewed-title{
+  color: white;
+  background-color: black;
+  transform: skewX(-25deg);
+  -webkit-transform: skewX(-25deg);
+  display: inline-block;
+  padding-left: 1rem;
+  padding-right: 8rem;
+  padding-top: 0.3333rem;
+  padding-bottom: 0.3333rem;
+  margin: 0 0 1rem 0;
+  &.back-link{
+    $displacement: 4rem;
+    margin: 1rem 0rem 0rem $displacement*-1;
+    padding-left: $displacement;
+    padding-right: 1rem;
+    transition: padding .3s;
+    &:hover{
+      padding-left: $displacement + 2rem;
+      color: yellow;
+    }
+  }
+}
+
 
 .character-card{
   padding: 2rem 0;
   display: flex;
-  .image{
-    display: flex;
-    flex: 25;
+  .image{ flex: 25; }
+  .image-canvas{
     background: black;
-    padding: 2rem 1rem;
-    justify-content: center;
+    padding: 1rem;
   }
   .detailed-info{
     flex: 75;
@@ -192,5 +218,9 @@ $white: white;
     padding: 2rem 0;
     font-size: 24px;
     font-family: 'Permanent Marker', cursive;
+  }
+  li{
+    list-style-type: none;
+    line-height: 150%;
   }
 }

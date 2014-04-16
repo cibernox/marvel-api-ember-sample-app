@@ -1,0 +1,5 @@
+<div class="entries-list">
+  {{#each}}
+    {{#link-to 'comics.show' this class="entry"}}{{view "comics/entry"}}{{/link-to}}
+  {{/each}}
+</div>
