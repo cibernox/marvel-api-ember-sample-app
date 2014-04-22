@@ -11,12 +11,22 @@
       <div class="description">{{character-description description}}</div>
     </div>
     <div class="related-info">
-      <div class="series">
+{{!--       <div class="series">
         <header class="skewed-title">Series</header>
         <ul>
           {{#each series}}
             <li>
               {{#link-to "series.show" this}}{{title}}{{/link-to}}
+            </li>
+          {{/each}}
+        </ul>
+      </div> --}}
+      <div class="comics">
+        <header class="skewed-title">Comics</header>
+        <ul>
+          {{#each comics}}
+            <li>
+              {{#link-to "comics.show" this}}{{title}}{{/link-to}}
             </li>
           {{/each}}
         </ul>

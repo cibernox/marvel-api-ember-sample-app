@@ -9,5 +9,6 @@ export default DS.Model.extend({
   type: DS.attr('string'),
   url: DS.attr('string'),
   // Relations
-  // nothing yet
+  // characters: DS.hasMany('character', {async: true}),
+  // comics: DS.hasMany('comic', {async: true})
 });

@@ -5,8 +5,6 @@ export default DS.Model.extend({
   isbn: DS.attr('string'),
   thumbnail: DS.attr('thumbnail'),
   // Relations
-  // serie: DS.belongsTo('serie', {async: true}),
-  // characters: DS.hasMany('character', {async: true}),
-  // events: DS.hasMany('event', {async: true}),
-  // stories: DS.hasMany('story', {async: true})
+  characters: DS.hasMany('character', {async: true}),
+  // series: DS.hasMany('serie', {async: true})
 });
